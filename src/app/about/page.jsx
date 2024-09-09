@@ -1,8 +1,3 @@
-export async function getStaticProps() {
-  return {
-    props: {}, // No props needed
-  };
-}
 
 const About = () => {
   return (
