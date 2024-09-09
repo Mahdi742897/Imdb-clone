@@ -1,6 +1,4 @@
-'use client'
 import MovieCard from "@/components/MovieCard";
-import { useParams } from "next/navigation";
 import React from "react";
 
 const Search = async (params) => {

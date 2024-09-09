@@ -1,6 +1,4 @@
-// "use client";
 import Image from "next/image";
-// import { useParams, useSearchParams } from "next/navigation";
 import { FaThumbsUp } from "react-icons/fa6";
 
 const Movie = async (movie) => {
