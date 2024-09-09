@@ -51,7 +51,7 @@ export default async function Home({searchParams}) {
     <>
       <Slider item={upcoming}/>
       <div className="grid sm:grid-cols-2 max-w-7xl mx-auto lg:grid-cols-3 xl:grid-cols-3 justify-items-center py-4">
-        {result.map((movie) => (
+        {result?.map((movie) => (
           <MovieCard movie={movie} key={movie.id} />
         ))}
       </div>
