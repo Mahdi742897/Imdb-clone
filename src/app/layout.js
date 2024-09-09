@@ -4,6 +4,8 @@ import Header from "@/components/Header";
 import { ThemeProvider } from "next-themes";
 import Navbar from "@/components/Navbar";
 import SearchBox from "@/components/SearchBox";
+import { Suspense } from 'react';
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +21,9 @@ export default function RootLayout({ children }) {
         <div className="transition-colors duration-[400ms]">
           <ThemeProvider attribute="class">
             <Header />
-            <Navbar />
+            <Suspense fallback={<div>Loading search results...</div>}>
+              <Navbar />
+            </Suspense>
             <SearchBox />
             {children}
           </ThemeProvider>
