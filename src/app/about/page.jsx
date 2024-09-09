@@ -1,9 +1,13 @@
-import React from "react";
+export async function getStaticProps() {
+  return {
+    props: {}, // No props needed
+  };
+}
 
 const About = () => {
   return (
     <section className="max-w-7xl mx-auto space-y-6 px-3 xl:px-0">
-      <h1 class="text-2xl font-medium text-amber-600">About</h1>
+      <h1 className="text-2xl font-medium text-amber-600">About</h1>
       <p className="text-justify">
         Welcome to our movie database website! We are a team of passionate movie
         enthusiasts who have come together to create a one-stop destination for
