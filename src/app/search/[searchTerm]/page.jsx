@@ -1,9 +1,13 @@
+'use client'
 import MovieCard from "@/components/MovieCard";
+import { useParams } from "next/navigation";
 import React from "react";
 
 const Search = async (params) => {
+  // const searchTerm = useParams();
+  
   const searchTerm = params.params.searchTerm;
-  const API_KEY = process.env.API_KEY;
+  const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
 
   const options = {
     method: "GET",

@@ -10,7 +10,7 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import Image from "next/image";
 
-const Slider = async ({ item }) => {
+const Slider = ({ item }) => {
   return (
     <>
       <Swiper
@@ -20,8 +20,8 @@ const Slider = async ({ item }) => {
         modules={[Pagination]}
         className="mySwiper"
       >
-        {item.map((movie) => (
-          <SwiperSlide>
+        {item?.map((movie) => (
+          <SwiperSlide key={movie.id}>
             <Image
               src={`https://image.tmdb.org/t/p/original${
                 movie.backdrop_path || movie.poster_path

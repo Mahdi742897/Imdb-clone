@@ -1,18 +1,35 @@
+// "use client";
 import Image from "next/image";
+// import { useParams, useSearchParams } from "next/navigation";
 import { FaThumbsUp } from "react-icons/fa6";
 
 const Movie = async (movie) => {
-  console.log(movie.params.id);
-
-  const API_KEY = process.env.API_KEY;
+  // console.log(movie.params.id);
+  // const searchParam = useSearchParams()
+  // const { movieId } = useParams();
+  // console.log(movieId);
+  // const [selectedMovie, setSelectedMovie] = useState();
+  const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
 
   const options = {
-    method: "GET",
     headers: {
       accept: "application/json",
       Authorization: `Bearer ${API_KEY}`,
     },
   };
+  // useEffect(() => {
+  //   axios
+  //     .get(
+  //       `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
+  //       {
+  //         options,
+  //       }
+  //     )
+  //     .then((res) => {
+  //       setSelectedMovie(res.data.results);
+  //       console.log(res);
+  //     });
+  // }, []);
 
   const res = await fetch(
     `https://api.themoviedb.org/3/movie/${movie.params.id}?language=en-US`,
@@ -21,13 +38,14 @@ const Movie = async (movie) => {
 
   const selectedMovie = await res.json();
 
+  console.log(selectedMovie);
+  
+
   if (!res.ok) {
     throw new Error("something is wrong ...");
   }
 
-  //   const result = res.results;
-
-  console.log(selectedMovie);
+    const result = res.results;
 
   return (
     <div className="w-full flex justify-center">
@@ -48,12 +66,12 @@ const Movie = async (movie) => {
           {/* <p className="text-sm font-light">{selectedMovie.release_date}</p>
           <p className="text-sm font-light">{selectedMovie.vote_count}</p> */}
           <div className="flex items-center gap-4">
-              <p className="text-sm font-light">{selectedMovie.release_date}</p>
-              <span className="flex gap-1 items-center text-sm font-light">
-                <FaThumbsUp className="" />
-                {selectedMovie.vote_count}
-              </span>
-            </div>
+            <p className="text-sm font-light">{selectedMovie.release_date}</p>
+            <span className="flex gap-1 items-center text-sm font-light">
+              <FaThumbsUp className="" />
+              {selectedMovie.vote_count}
+            </span>
+          </div>
         </div>
       </div>
     </div>
