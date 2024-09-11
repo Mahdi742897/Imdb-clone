@@ -2,7 +2,7 @@ import Image from "next/image";
 import MovieCard from "@/components/MovieCard";
 import Slider from "@/components/Slider";
 
-export default async function Home({searchParams}) {
+export default async function Home({ searchParams }) {
   const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
   const genre = searchParams?.genre || "fetchTopRated";
   // const genre = "trending"
@@ -24,9 +24,9 @@ export default async function Home({searchParams}) {
 
   const data = await res.json();
 
-  // if (!res.ok) {
-  //   throw new Error("something is wrong ...");
-  // }
+  if (!res.ok) {
+    throw new Error("something is wrong ...");
+  }
 
   const result = data.results;
 
@@ -39,9 +39,9 @@ export default async function Home({searchParams}) {
 
   const upcomingData = await upcomingRes.json();
 
-  // if (!upcomingRes.ok) {
-  //   throw new Error("something is wrong ...");
-  // }
+  if (!upcomingRes.ok) {
+    throw new Error("something is wrong ...");
+  }
 
   const upcoming = upcomingData.results;
 
@@ -49,15 +49,14 @@ export default async function Home({searchParams}) {
 
   return (
     <>
-      <Slider item={upcoming}/>
+      <Slider item={upcoming} />
       <div className="grid sm:grid-cols-2 max-w-7xl mx-auto lg:grid-cols-3 xl:grid-cols-3 justify-items-center py-4">
         {result?.map((movie) => (
           <MovieCard movie={movie} key={movie.id} />
         ))}
       </div>
+
+      <h1>hellooo</h1>
     </>
   );
 }
-
-
-
