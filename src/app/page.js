@@ -55,8 +55,6 @@ export default async function Home({ searchParams }) {
           <MovieCard movie={movie} key={movie.id} />
         ))}
       </div>
-
-      <h1>hellooo</h1>
     </>
   );
 }
