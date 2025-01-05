@@ -38,9 +38,9 @@ const Slider = ({ item }) => {
                 alt="Picture of the author"
                 className="group-hover:opacity-75 w-screen h-[75vh] object-cover transition-opacity duration-300 rounded-t-lg"
               />
-              <div className="flex flex-col items-start justify-end md:absolute md:bg-gradient-to-t from-black to-transparent w-screen bottom-0 md:h-80 md:px-12 lg:px-32 px-2 py-2">
+              <div className="flex dark:text-white flex-col items-start justify-end md:absolute md:bg-gradient-to-t from-black to-transparent w-screen bottom-0 md:h-80 md:px-12 lg:px-32 px-2 py-2">
                 <h2 className="mb-2 text-lg font-semibold">{movie.title}</h2>
-                <p className="mb-3 text-base font-normal">{movie.overview}</p>
+                <p className="mb-3 text-base font-normal ">{movie.overview}</p>
                 {/* <p className="text-sm font-light">{movie.release_date}</p>
           <p className="text-sm font-light">{movie.vote_count}</p> */}
                 <div className="flex items-center gap-4">

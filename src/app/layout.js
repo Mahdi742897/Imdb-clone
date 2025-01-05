@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
           <ThemeProvider attribute="class">
             <Header />
             <Suspense fallback={<div>Loading search results...</div>}>
-              <Navbar />
+              {/* <Navbar /> */}
             </Suspense>
             <SearchBox />
             {children}
